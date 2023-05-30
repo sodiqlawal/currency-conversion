@@ -47,12 +47,12 @@ const CurrencyComponent = () => {
                         {/* dollar section */}
                         <Section>
                             <Dropdown label={`Convert to ${selectConvertCurrency?.currency || ''}`} selectedCurrency={selectConvertCurrency} setSelectedCurrency={setConvertCurrency} filterBy={selectCurrency} />
-                            <Result>{(result && selectConvertCurrency) ? calculate(Number(amount),result.rates[selectConvertCurrency?.currency!]) : null}</Result>
+                            <Result>{(result && selectConvertCurrency) ? calculate(Number(amount),result?.rates?.[selectConvertCurrency?.currency!]) : null}</Result>
                         </Section>
                     </LeftSection>
 
 
-                    <Card currency={selectCurrency} amount={amount} convertedAmt={calculate(Number(amount),result.rates[selectConvertCurrency?.currency!])} convertedCurrency={selectConvertCurrency?.symbol} />
+                    <Card currency={selectCurrency} amount={amount} convertedAmt={calculate(Number(amount),result?.rates?.[selectConvertCurrency?.currency!])} convertedCurrency={selectConvertCurrency?.symbol} />
             </Content>
 
 
